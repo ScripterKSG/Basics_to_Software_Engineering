@@ -50,6 +50,7 @@ e.g.,
 ---------
 list += list or tuple
 list + list
+tuple += tuple
 
 iteration.py: 
 ------------
