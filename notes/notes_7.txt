@@ -1,0 +1,70 @@
+----------
+Lambda and zip
+--------------
+Lambda is an anonymous function that can be created at runtime. 
+Anonymous means that it should not be bound to a name.
+
+>>> def f (x):
+...     return x**2
+>>> g = lambda x: x**2
+>>>
+>>> f(3) == g(3)
+True
+Note that the lambda definition does not include a "return" statement -- 
+it always contains an expression which is returned.
+
+Syntax:
+lambda arg1, arg2, ...argN : expression using arguments
+>>> f = lambda x, y, z: x + y + z
+>>> f(1, 2, 3)
+6
+>>>
+
+Zip:
+zip is a generator that combines two objects in a tuple.
+
+>>> a = [1, 2, 3, 4]
+>>> b = ['a', 'b', 'c', 'd']
+>>> c = zip(a, b)
+>>> c
+<zip object at 0x01939440>
+>>> list(c)
+[(1, 'a'), (2, 'b'), (3, 'c'), (4, 'd')]
+>>> list(c)
+[]
+
+--------------
+Cannot be done for iterators
+- list(iterator) and len(iterator) == 0 
+iterators might generate numbers indefintely, e.g., count() in itertools.
+
+- if iterator or if (iterator == []) 
+e.g.,
+>>> x = []
+>>> y = iter(x)
+>>> y
+<list_iterator object at 0x000001A70B1CAEF0>
+>>> if y :
+...    print("Full List")
+... else :
+...    print("Empty List")
+...
+Full List
+>>>
+
+Indexables:
+---------
+If an iterable is indexable, you can access it's elements via an index and that the elements are finite.
+If an iterable is not indexable, then it might be infinit and you cannot access it's elements via an index. 
+For example, if x is not idexable, to iterate throught it's elements, you may either do "for i in x:" or
+p = iter(x); val = next(p); ...
+-------------
+
+
+RMSE:
+Other implementations using zip, map, lambda.
+(1) rmse_range_for: indexing
+(2) rmse_zip_for: improvements: iterates through tuples
+              zip: it combines two objects in a tuple.
+              z is iterable over iterables of lenght 2.
+              zip is a generator.
